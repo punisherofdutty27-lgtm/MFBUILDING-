@@ -380,6 +380,25 @@ header.scrolled{box-shadow:0 8px 30px -14px rgba(17,24,28,.4)}
   .hero-cta .btn{flex:1 1 auto;justify-content:center;min-width:0}
 }
 
+
+  .mobile-cta-bar{display:none}
+  @media (max-width:640px){
+    .mobile-cta-bar{
+      display:flex;position:fixed;left:0;right:0;bottom:0;z-index:95;
+      background:var(--ink);box-shadow:0 -6px 20px rgba(0,0,0,.28);
+      padding-bottom:env(safe-area-inset-bottom);
+    }
+    .mobile-cta-bar a{
+      flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+      padding:9px 4px 8px;color:#fff;font-family:"Archivo",sans-serif;font-weight:700;font-size:11px;
+      border-right:1px solid rgba(255,255,255,.14);
+    }
+    .mobile-cta-bar a:last-child{border-right:0}
+    .mobile-cta-bar a.cta-quote{background:var(--hi)}
+    .mobile-cta-bar .ico{font-size:18px;line-height:1}
+    body{padding-bottom:calc(58px + env(safe-area-inset-bottom))}
+    #wa-float{display:none}
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -539,7 +558,7 @@ header.scrolled{box-shadow:0 8px 30px -14px rgba(17,24,28,.4)}
     <div class="foot-grid">
       <div>
         <img class="foot-logo-img" src="../images/logo-footer.png" alt="MF BUILDING SA">
-        <p>General building contractor in Geneva, waterproofing specialist — 17 years of experience. Roofs, terraces, outdoor spaces, verandas and renovation.</p>
+        <p>General building contractor in Geneva, waterproofing specialist — a team with 17 years of experience. Roofs, terraces, outdoor spaces, verandas and renovation.</p>
       </div>
       <div class="foot-col">
         <h4>Services</h4>
@@ -571,6 +590,11 @@ header.scrolled{box-shadow:0 8px 30px -14px rgba(17,24,28,.4)}
 <a href="https://wa.me/41779101815?text=Hello%2C%20I%20would%20like%20a%20quote%20for%20waterproofing%20work." id="wa-float" target="_blank" rel="noopener" aria-label="Contact us on WhatsApp">
   <svg width="30" height="30" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.3.7 4.5 1.9 6.4L4 29l7.9-1.9c1.8 1 3.9 1.5 6.1 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.2 1 .9-4.1-.3-.4C5.6 18.6 5 16.8 5 15 5 9 10 4 16 4s11 5 11 11-5 10-11 10zm5.7-7.9c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-.9 1.2-.3.2-.6.1c-.9-.4-1.8-.8-2.6-1.8-.7-.9.7-.8 1.9-2.7.1-.3 0-.5 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.2.2 2.2 3.4 5.3 4.7 2 .8 2.7.9 3.7.8.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
 </a>
+<div class="mobile-cta-bar" role="navigation" aria-label="Quick actions">
+  <a href="tel:+41779101815"><span class="ico">📞</span>Call</a>
+  <a href="https://wa.me/41779101815?text=Hello%2C%20I%20would%20like%20a%20quote%20for%20waterproofing%20work." target="_blank" rel="noopener"><span class="ico">💬</span>WhatsApp</a>
+  <a class="cta-quote" href="/en/#contact"><span class="ico">📝</span>Free quote</a>
+</div>
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();

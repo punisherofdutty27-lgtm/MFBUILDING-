@@ -147,6 +147,23 @@
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   }
+  .mobile-cta-bar{display:none}
+  @media (max-width:640px){
+    .mobile-cta-bar{
+      display:flex;position:fixed;left:0;right:0;bottom:0;z-index:95;
+      background:var(--ink);box-shadow:0 -6px 20px rgba(0,0,0,.28);
+      padding-bottom:env(safe-area-inset-bottom);
+    }
+    .mobile-cta-bar a{
+      flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+      padding:9px 4px 8px;color:#fff;font-family:"Archivo",sans-serif;font-weight:700;font-size:11px;
+      border-right:1px solid rgba(255,255,255,.14);
+    }
+    .mobile-cta-bar a:last-child{border-right:0}
+    .mobile-cta-bar a.cta-quote{background:var(--hi)}
+    .mobile-cta-bar .ico{font-size:18px;line-height:1}
+    body{padding-bottom:calc(58px + env(safe-area-inset-bottom))}
+  }
 </style>
 </head>
 <body>
@@ -215,7 +232,7 @@
     <div class="foot-grid">
       <div>
         <img class="foot-logo-img" src="images/logo-footer.png" alt="MF BUILDING SA">
-        <p>Entreprise générale du bâtiment à Genève, spécialiste de l'étanchéité — 17 ans d'expérience. Toitures, terrasses, aménagement extérieur, vérandas et rénovation.</p>
+        <p>Entreprise générale du bâtiment à Genève, spécialiste de l'étanchéité — une équipe avec 17 ans d'expérience. Toitures, terrasses, aménagement extérieur, vérandas et rénovation.</p>
       </div>
       <div class="foot-col">
         <h4>Services</h4>
@@ -243,6 +260,12 @@
     </div>
   </div>
 </footer>
+
+<div class="mobile-cta-bar" role="navigation" aria-label="Actions rapides">
+  <a href="tel:+41779101815"><span class="ico">📞</span>Appeler</a>
+  <a href="https://wa.me/41779101815?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20des%20travaux%20d'%C3%A9tanch%C3%A9it%C3%A9." target="_blank" rel="noopener"><span class="ico">💬</span>WhatsApp</a>
+  <a class="cta-quote" href="/#contact"><span class="ico">📝</span>Devis gratuit</a>
+</div>
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
