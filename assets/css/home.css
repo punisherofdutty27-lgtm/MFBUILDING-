@@ -1,0 +1,143 @@
+/* ============================================================
+   MF BUILDING SA — Homepage (index.html only)
+   Additive to /assets/css/base.css — does not modify shared rules.
+   ============================================================ */
+
+:root{
+  /* rayons — formalisation de ce qui existe déjà dans base.css */
+  --r-sharp:2px;   /* boutons, inputs, chips */
+  --r-card:4px;    /* cartes, panneaux, aside */
+  --r-media:6px;   /* photos, médias */
+
+  /* rythme d'espacement à deux vitesses pour les sections homepage */
+  --space-major:clamp(72px,9vw,120px);
+  --space-minor:clamp(48px,6vw,80px);
+}
+
+section.block.section--major{padding:var(--space-major) 0}
+section.block.section--minor{padding:var(--space-minor) 0}
+@media (max-width:600px){
+  section.block.section--major{padding:56px 0}
+  section.block.section--minor{padding:44px 0}
+}
+
+/* ---------- HERO : photo réelle de chantier ---------- */
+.hero-media{
+  position:relative;border-radius:var(--r-media);overflow:hidden;
+  box-shadow:0 30px 60px -30px rgba(11,34,48,.5);
+  aspect-ratio:4/5;background:var(--ink);
+}
+.hero-media img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(23,24,28,0) 45%,rgba(23,24,28,.75) 100%);
+}
+.hero-media .hm-cap{
+  position:absolute;left:20px;right:20px;bottom:16px;z-index:2;
+  font-family:"Space Mono",monospace;font-size:11.5px;letter-spacing:.1em;
+  color:rgba(255,255,255,.88);
+}
+.hero-media .hm-cap b{color:#fff;font-family:"Archivo",sans-serif;font-weight:700;letter-spacing:0;display:block;font-size:14px;margin-bottom:2px}
+@media (min-width:961px){ .hero-media{aspect-ratio:auto;height:100%} }
+
+/* ---------- BANDEAU PREUVES : séparateurs architecturaux ---------- */
+@media (min-width:961px){
+  .strip .wrap{flex-wrap:nowrap;justify-content:flex-start;gap:0}
+  .strip-item{flex:1 1 0;padding:0 30px}
+  .strip-item:first-child{padding-left:0}
+  .strip-item:not(:first-child){border-left:1px solid rgba(255,255,255,.16)}
+}
+
+/* ---------- GRILLE SERVICES : une seule carte illustrée, le reste sobre ---------- */
+.grid3 a.svc.has-photo{padding:0;overflow:hidden}
+.grid3 a.svc.has-photo .svc-photo{
+  aspect-ratio:16/10;background-size:cover;background-position:center;
+  background-image:url('../../media/realisations/realisation-dalles-sur-plots-web.jpg');
+}
+.grid3 a.svc.has-photo .svc-card-body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.grid3 a.svc.has-photo .ico{display:none}
+
+/* ---------- RÉALISATIONS : portfolio éditorial ---------- */
+.portfolio{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:64px;gap:14px}
+.p-item{
+  position:relative;display:block;border-radius:var(--r-media);overflow:hidden;background:var(--ink);
+  box-shadow:0 20px 44px -26px rgba(17,24,28,.45);
+}
+.p-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
+.p-item:hover img{transform:scale(1.045)}
+.p-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,17,20,0) 55%,rgba(17,17,20,.72) 100%)}
+.p-cap{
+  position:absolute;left:16px;right:16px;bottom:14px;z-index:2;
+  font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.08em;color:rgba(255,255,255,.9);
+}
+.p-cap b{display:block;font-family:"Archivo",sans-serif;font-weight:700;letter-spacing:0;color:#fff;margin-bottom:2px}
+.p-feature{grid-column:1/8;grid-row:span 7}
+.p-feature .p-cap{font-size:12px}
+.p-feature .p-cap b{font-size:19px}
+.p-secondary-1{grid-column:8/13;grid-row:span 7}
+.p-secondary-2,.p-secondary-3,.p-secondary-4{grid-column:span 4;grid-row:span 5}
+
+@media (max-width:900px){
+  .p-feature{grid-column:1/13}
+  .p-secondary-1{grid-column:1/13;grid-row:span 6}
+  .p-secondary-2,.p-secondary-3,.p-secondary-4{grid-column:span 6}
+}
+
+/* mobile : vraie galerie tactile (swipe), pas une grille desktop compressée */
+@media (max-width:640px){
+  .portfolio{
+    display:flex;grid-auto-rows:unset;gap:12px;
+    overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    margin:0 -24px;padding:0 24px 6px;
+  }
+  .p-item{scroll-snap-align:start}
+  .p-feature{flex:0 0 88%;aspect-ratio:4/3}
+  .p-secondary-1,.p-secondary-2,.p-secondary-3,.p-secondary-4{flex:0 0 72%;aspect-ratio:4/5}
+}
+
+/* ---------- CTA FINAL : réutilise .ctaband existant, homepage ---------- */
+.ctaband.home-ctaband .wrap{justify-content:center;text-align:center;flex-direction:column;gap:22px}
+.ctaband.home-ctaband h2{max-width:none}
+
+/* ---------- icônes CTA (remplacement des emoji) ---------- */
+.btn svg.btn-ico{flex:0 0 auto}
+
+/* ---------- HERO : composition mobile dédiée (photo d'abord) ---------- */
+@media (max-width:960px){
+  .hero-grid{display:flex;flex-direction:column}
+  .hero-media{order:-1;margin-bottom:32px;aspect-ratio:4/3}
+}
+
+/* ---------- FORMULAIRE MULTI-ÉTAPES (contenu identique, déplacé depuis l'ancien <style> inline) ---------- */
+.form-progress{display:flex;align-items:center;margin-bottom:22px}
+.fp-step{
+  width:26px;height:26px;border-radius:50%;flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Archivo",sans-serif;font-weight:800;font-size:12px;
+  background:#fff;border:2px solid var(--line-strong);color:var(--muted);
+  transition:background .2s,border-color .2s,color .2s;
+}
+.fp-step.active{border-color:var(--hi);color:var(--hi);background:#fff}
+.fp-step.done{background:var(--hi);border-color:var(--hi);color:#fff}
+.fp-line{flex:1 1 auto;height:2px;background:var(--line-strong);margin:0 6px}
+.form-step{display:none}
+.form-step.active{display:block}
+.fld-label{display:block;font-size:15px;font-weight:700;margin-bottom:12px;font-family:"Archivo",sans-serif}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
+.choice-btn{
+  display:block;width:100%;text-align:left;padding:13px 14px;border-radius:3px;
+  border:1.5px solid var(--line-strong);background:#fff;color:var(--ink);
+  font-family:inherit;font-size:14.5px;font-weight:600;cursor:pointer;
+  transition:border-color .15s,background .15s;
+}
+.choice-btn:hover{border-color:var(--water)}
+.choice-btn.selected{border-color:var(--hi);background:#FDECEC;color:var(--hi-deep)}
+.step-actions{display:flex;gap:12px;margin-top:6px}
+.step-actions .btn{flex:1;justify-content:center}
+.step-next[disabled]{opacity:.5;cursor:not-allowed}
+.fld-optional{font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0}
+.fld-photo input[type="file"]{
+  width:100%;padding:10px 12px;border:1px dashed var(--line-strong);border-radius:2px;
+  background:#fff;font-size:13px;color:var(--muted);
+}
+@media (max-width:480px){.choice-grid{grid-template-columns:1fr}}
