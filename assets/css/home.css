@@ -95,6 +95,22 @@ section.block.section--minor{padding:var(--space-minor) 0}
   .p-secondary-1,.p-secondary-2,.p-secondary-3,.p-secondary-4{flex:0 0 72%;aspect-ratio:4/5}
 }
 
+/* ---------- RECHERCHE DE FUITE : section problème/solution ---------- */
+.leak-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+.leak-media{border-radius:var(--r-media);overflow:hidden;box-shadow:0 26px 54px -28px rgba(11,34,48,.45);aspect-ratio:4/3}
+.leak-media img{width:100%;height:100%;object-fit:cover;display:block}
+.leak-section .lead{font-size:17px;color:var(--muted);margin-bottom:22px}
+.leak-situations{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:0 0 28px}
+.leak-situations li{position:relative;padding-left:22px;font-size:15px;color:var(--ink);font-weight:500}
+.leak-situations li::before{content:"";position:absolute;left:0;top:7px;width:10px;height:10px;background:var(--hi);border-radius:2px}
+@media (max-width:960px){
+  .leak-grid{grid-template-columns:1fr;gap:32px}
+  .leak-media{order:-1;aspect-ratio:16/10}
+}
+@media (max-width:600px){
+  .leak-situations{grid-template-columns:1fr}
+}
+
 /* ---------- CTA FINAL : réutilise .ctaband existant, homepage ---------- */
 .ctaband.home-ctaband .wrap{justify-content:center;text-align:center;flex-direction:column;gap:22px}
 .ctaband.home-ctaband h2{max-width:none}
