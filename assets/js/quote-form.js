@@ -68,11 +68,11 @@
     var btn = form.querySelector('[type="submit"]'), ok = document.getElementById('formok'), err = document.getElementById('formerr');
     ok.style.display = 'none'; err.style.display = 'none';
     var t = btn.textContent; btn.disabled = true; btn.textContent = '…';
-    track('form_submit', {});
     fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
       .then(function (r) {
         if (r.ok) {
           form.reset(); resetWizard(); ok.style.display = 'block';
+          track('form_submit', {});
           /* Suivi conversion Google Ads : décommenter et remplacer les identifiants
           if (typeof gtag === 'function') { gtag('event', 'conversion', { 'send_to': 'AW-XXXXXXXXX/XXXXXXXXXXXXXXXX' }); } */
         } else { err.style.display = 'block'; }
