@@ -9,6 +9,12 @@
    quote_click, service_click, project_view,
    form_start, form_step, form_submit.
 
+   Événements Google Ads (nommage GA4/Ads recommandé, poussés en
+   plus des événements ci-dessus, sur les mêmes clics — à utiliser
+   comme déclencheurs de conversion dans GTM/Google Ads) :
+   click_phone, click_whatsapp, click_email. Voir quote-form.js
+   pour generate_lead (soumission réussie du formulaire).
+
    Convention data-* :
    data-track="<event_name>"        déclenche l'événement au clic
    data-track-location="<zone>"     force la valeur de link_location
@@ -48,13 +54,25 @@ window.trackEvent = window.trackEvent || function (name, data) {
 
   document.addEventListener('click', function (ev) {
     var tel = ev.target.closest('a[href^="tel:"]');
-    if (tel) { trackEvent('phone_click', { link_location: inferLocation(tel) }); return; }
+    if (tel) {
+      trackEvent('phone_click', { link_location: inferLocation(tel) });
+      trackEvent('click_phone', { link_location: inferLocation(tel) });
+      return;
+    }
 
     var mail = ev.target.closest('a[href^="mailto:"]');
-    if (mail) { trackEvent('contact_click', { link_location: inferLocation(mail) }); return; }
+    if (mail) {
+      trackEvent('contact_click', { link_location: inferLocation(mail) });
+      trackEvent('click_email', { link_location: inferLocation(mail) });
+      return;
+    }
 
     var wa = ev.target.closest('a[href*="wa.me"]');
-    if (wa) { trackEvent('whatsapp_click', { link_location: inferLocation(wa) }); return; }
+    if (wa) {
+      trackEvent('whatsapp_click', { link_location: inferLocation(wa) });
+      trackEvent('click_whatsapp', { link_location: inferLocation(wa) });
+      return;
+    }
 
     var el = ev.target.closest('[data-track]');
     if (!el) return;

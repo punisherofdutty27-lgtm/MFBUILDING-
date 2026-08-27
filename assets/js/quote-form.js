@@ -73,6 +73,11 @@
         if (r.ok) {
           form.reset(); resetWizard(); ok.style.display = 'block';
           track('form_submit', {});
+          /* generate_lead : nom d'événement standard GA4/Google Ads, poussé
+             uniquement ici (fetch réussi, r.ok === true) — jamais au simple
+             clic sur "Envoyer". C'est le signal à utiliser comme déclencheur
+             de la conversion principale Google Ads. */
+          track('generate_lead', {});
           /* Suivi conversion Google Ads : décommenter et remplacer les identifiants
           if (typeof gtag === 'function') { gtag('event', 'conversion', { 'send_to': 'AW-XXXXXXXXX/XXXXXXXXXXXXXXXX' }); } */
         } else { err.style.display = 'block'; }

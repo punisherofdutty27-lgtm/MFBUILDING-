@@ -36,6 +36,9 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://mfbuilding.ch/mentions-legales.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://mfbuilding.ch/en/legal-notice.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mfbuilding.ch/mentions-legales.html"/></url>
+  <url><loc>https://mfbuilding.ch/politique-de-confidentialite.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mfbuilding.ch/politique-de-confidentialite.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mfbuilding.ch/politique-de-confidentialite.html"/></url>
   <url><loc>https://mfbuilding.ch/en/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://mfbuilding.ch/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://mfbuilding.ch/en/"/>
