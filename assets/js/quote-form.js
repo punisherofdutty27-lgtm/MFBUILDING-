@@ -78,12 +78,6 @@
              clic sur "Envoyer". C'est le signal à utiliser comme déclencheur
              de la conversion principale Google Ads. */
           track('generate_lead', {});
-          /* Conversion Google Ads "Demande de devis" — déclenchée uniquement
-             ici, dans le bloc de succès réel (fetch résolu + r.ok === true).
-             Jamais au clic sur "Envoyer", jamais en cas d'échec réseau/serveur. */
-          if (typeof gtag === 'function') {
-            gtag('event', 'conversion', { 'send_to': 'AW-18358986526/02PdCKDequMCeJ7On7JE' });
-          }
         } else { err.style.display = 'block'; }
       })
       .catch(function () { err.style.display = 'block'; })
