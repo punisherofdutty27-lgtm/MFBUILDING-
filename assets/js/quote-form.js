@@ -44,7 +44,7 @@
     });
 
     var localisation = document.getElementById('localisation');
-    step1Next.addEventListener('click', function () { if (fProbleme.value) showStep(2); });
+    step1Next.addEventListener('click', function () { markStart(); if (fProbleme.value) showStep(2); });
     document.getElementById('step2Next').addEventListener('click', function () {
       if (localisation.value.trim()) { showStep(3); } else { localisation.focus(); }
     });
