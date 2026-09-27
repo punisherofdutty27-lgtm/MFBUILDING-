@@ -1,0 +1,19 @@
+/* ============================================================
+   MF BUILDING SA — Page Sous-traitance étanchéité (B2B)
+   Additive to /assets/css/base.css et service.css — ne modifie
+   pas les règles partagées, page seule concernée.
+   ============================================================ */
+
+/* ---------- HERO : photo pleine largeur sous le texte, ratio d'origine conservé ---------- */
+.b2b-tags{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.08em;color:var(--muted);margin-top:22px}
+.b2b-hero-photo{margin-top:40px;border-radius:6px;overflow:hidden;box-shadow:0 26px 54px -28px rgba(11,34,48,.35)}
+.b2b-hero-photo img{width:100%;height:auto;display:block}
+
+/* ---------- LISTE VISUELLE À COCHES (public professionnel ciblé) ---------- */
+.check-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;margin-top:24px}
+.check-list li{position:relative;padding-left:26px;font-weight:500;font-size:15px}
+.check-list li::before{content:"✓";position:absolute;left:0;top:0;color:var(--hi);font-weight:700}
+@media (max-width:600px){.check-list{grid-template-columns:1fr}}
+
+/* ---------- CTA sous la section sous-traitance (fond sombre .process) ---------- */
+.b2b-sub-cta{text-align:center;margin-top:36px}
